@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homes"
+        android:icon="@drawable/home"
+        android:title="Home" />
+    <item
+        android:id="@+id/service"
+        android:icon="@drawable/services"
+        android:title="services" />
+    <item
+        android:id="@+id/book"
+        android:icon="@drawable/booking"
+        android:title="Book Now" />
+    <item
+        android:id="@+id/offer"
+        android:icon="@drawable/ic_local_offer_black_24dp"
+        android:title="Offers" />
+    <item
+        android:id="@+id/abtus"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        android:title="About Us" />
+</menu>
