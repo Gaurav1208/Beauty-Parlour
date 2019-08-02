@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         Intent i;
 
         switch (v.getId()){
-            case R.id.haircut : i = new Intent(getContext(),Hairtype.class);startActivity(i);
+            case R.id.haircut : i = new Intent(getContext(),HairType.class);startActivity(i);
             break;
             case R.id.sknt : i = new Intent(getContext(),Skinbasics.class);startActivity(i);
             break;

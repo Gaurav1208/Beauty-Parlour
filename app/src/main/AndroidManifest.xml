@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Handandfeettype"></activity>
+        <activity android:name=".HairType"></activity>
+        <activity android:name=".Handandfeettype" />
         <activity android:name=".Makeuptypes" />
         <activity android:name=".Skinbasics" />
-        <activity android:name=".Hairtype" />
         <activity android:name=".welcome" />
         <activity android:name=".signUp" />
         <activity android:name=".MainActivity">
