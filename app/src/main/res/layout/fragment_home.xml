@@ -21,7 +21,7 @@
         <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="173dp"
-            android:id="@+id/haircut"
+        android:id="@+id/haircut"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"

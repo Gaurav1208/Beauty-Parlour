@@ -1,6 +1,7 @@
 package com.example.beautyparlour;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,13 @@ public class HairAdapter extends RecyclerView.Adapter<HairAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.getContext().startActivity(new Intent(v.getContext(),OurHairService.class));
+                }
+            });
 
             item_image = itemView.findViewById(R.id.item_image);
             item_name = itemView.findViewById(R.id.item_name);

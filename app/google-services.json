@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1013393434218-ee5td4dm9te18lal6ncegacgm492le08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.beautyparlour",
+            "certificate_hash": "e5171ff0367332a742c9d273eb4d34a04943a738"
+          }
+        },
+        {
           "client_id": "1013393434218-ba6oh9huibc77pup1918lou5c8av4e72.apps.googleusercontent.com",
           "client_type": 3
         }
