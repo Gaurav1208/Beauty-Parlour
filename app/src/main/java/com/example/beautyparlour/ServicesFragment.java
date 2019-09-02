@@ -1,32 +1,32 @@
 package com.example.beautyparlour;
 
-import android.annotation.TargetApi;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 
-import java.lang.annotation.Target;
-
-public class ServicesFragment extends AppCompatActivity {
+public class ServicesFragment extends Fragment {
 
     ConstraintLayout expandableView;
     Button arrowBtn;
     CardView cardview;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_services);
-
-        expandableView = findViewById(R.id.expandableView);
-        arrowBtn = findViewById(R.id.arrowBtn);
-        cardview = findViewById(R.id.cardview);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_services,container, false);
+        expandableView = v.findViewById(R.id.expandableView);
+        arrowBtn = v.findViewById(R.id.arrowBtn);
+        cardview = v.findViewById(R.id.cardview);
         arrowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,9 +40,9 @@ public class ServicesFragment extends AppCompatActivity {
             }
         });
 
+        return v;
     }
 
-    @Target(value = )
     public void doIt(){
         TransitionManager.beginDelayedTransition(cardview,new AutoTransition());
         expandableView.setVisibility(View.VISIBLE);
