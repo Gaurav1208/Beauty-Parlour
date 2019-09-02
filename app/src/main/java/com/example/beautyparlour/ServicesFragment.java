@@ -1,37 +1,52 @@
 package com.example.beautyparlour;
 
+import android.annotation.TargetApi;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class ServicesFragment extends Fragment implements View.OnClickListener {
+import java.lang.annotation.Target;
 
-    View view;
-    private CardView Threading,Forehead,UpperLip,LowerLip,ChinThread,FaceThreadSide,NoseThread,FullFaceThread,MassageFacial,ShehnazFacial,LotusFacial,MassageCleanUp,ScrubCleanUp,NormalCleanUp,BrandedCleanUp,WineCleanUp,CTM,WhiteningCleanUp,GelCleanUp;
-    private CardView ShaAlmond,ShaThermo,ShaInstant,ShaPower,ShaGold,ShaDiamond,ShaAnti,ShaWhitening,FruitSaladFacial,HoneyAlmondFacial,PapayaFacial,BananaBoost,FairnessFacial,GoldVitalFacial,DiamondPolishingFacial,SilverHealingFacial,DvineFacial,WineFacial,PlatinumFacial,ChocolateFacial,WrinkledFacial;
-    private CardView BlossomSkinGlow,BlossomBridalGlow,BlossomThermo,BlossomBamboo,BlossomSignature,BlossomPearl,BlossomSilver,BlossomGold,BlossomDiamond,BlossomVitaminC,BlossomPowerMask;
-    private CardView WhiteningFacial,MeladeamDTan,DiamondPolishing,GoldPolishing,TimeExpertFacial,PowerMask,NormalCleanup,DTanCleanUp,TimeExpertCleanUp,FruitBleech,HaldiChandanBleech,NatureGoldBleech,DiamondBleech,PerfectWhiteningBleech,DTanSaraBleech,FemFairnessBleech,FemTurmericBleech,OxyLifeBleech,FemPearlBleech,FemGoldBleech,OzoneDtan,OzoneVitaminC;
-    private CardView NeckBleech,NeckBleechDtan,ArmsBleech,ArmsDtan,FullBodyBleech,FullBodyDtan,BodyPolishing;
-    private CardView UpperLipWax,LowerLipWax,ForeheadWax,ChinWax,SideWax,NoseWax,FullFaceWax,UnderArmsWax,NeckWax,LegsWax,FootWax,HalfLegsWax,BackWax,TummyWax,FullBodyWax,FullBackWax,HalfBackWax;
-    private CardView ManicurePadicure,ManicurePadicureLotus,ManicurePadicureLotusSpa,HydraSpaCreme,DeepSmootheningCreme,SerumHairSpa;
-    private CardView LorealHairColour,LorealHairColourFullTouch,LorealHairColourFull,BlonderPerStreak,ColouredStreak,AromaOilMassage,Rebounding,HairPedrm,SpiralPedrm,HennaColour;
+public class ServicesFragment extends AppCompatActivity {
+
+    ConstraintLayout expandableView;
+    Button arrowBtn;
+    CardView cardview;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_services,null);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_services);
 
+        expandableView = findViewById(R.id.expandableView);
+        arrowBtn = findViewById(R.id.arrowBtn);
+        cardview = findViewById(R.id.cardview);
+        arrowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(expandableView.getVisibility()==View.GONE){
+                    doIt();
+                }else{
+                    TransitionManager.beginDelayedTransition(cardview,new AutoTransition());
+                    expandableView.setVisibility(View.GONE);
+                    arrowBtn.setBackgroundResource(R.drawable.ic_arrow_drop_down_black);
+                }
+            }
+        });
 
-
-        return view;
     }
 
-    @Override
-    public void onClick(View v) {
-
+    @Target(value = )
+    public void doIt(){
+        TransitionManager.beginDelayedTransition(cardview,new AutoTransition());
+        expandableView.setVisibility(View.VISIBLE);
+        arrowBtn.setBackgroundResource(R.drawable.ic_arrow_drop_up_black);
     }
+
 }
