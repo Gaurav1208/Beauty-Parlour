@@ -27,7 +27,7 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
         BottomNavigationView navigation = findViewById(R.id.bottom_nav_menu);
         navigation.setOnNavigationItemSelectedListener(this);
         FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.frames, new HomeFragment()).commit();
+        fm.beginTransaction().replace(R.id.frames, com.example.beautyparlour.fragments.HomeFragment.instance()).commit();
     }
 
     private boolean loadFragment(Fragment fragment){
