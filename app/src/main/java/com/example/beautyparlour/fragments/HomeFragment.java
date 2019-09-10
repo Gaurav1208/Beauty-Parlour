@@ -44,7 +44,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.home_fragment, container, false);
         recyclerView = v.findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -63,7 +62,6 @@ public class HomeFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
                         Log.d("RESPONSE", response);
                         Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                         try {
@@ -71,7 +69,7 @@ public class HomeFragment extends Fragment {
                             for (int i = 0; i < arr.length(); ++i) {
                                 String type = arr.getJSONObject(i).getString("type");
                                 String thumbnail = arr.getJSONObject(i).getString("thumbnail");
-                                list.add(new Service(type,thumbnail));
+                                list.add(new Service(type, thumbnail));
                             }
                             adapter.notifyDataSetChanged();
                         } catch (Exception e) {
@@ -85,44 +83,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-// Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
-
-
-
-//    private void getData(){
-//        try {
-//        OkHttpClient client = new OkHttpClient();
-//
-//        Request request = new Request.Builder()
-//                .url("https://naseemali925.000webhostapp.com/cats.php")
-//                .get()
-//                .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36")
-//                .addHeader("Accept", "*/*")
-//                .addHeader("Cache-Control", "no-cache")
-//                .addHeader("Postman-Token", "d1dde174-5e6b-4fec-b19b-b9e531c5dc4b,e6f7fdfa-0834-4345-a18c-a01820e08f5d")
-//                .addHeader("Host", "naseemali925.000webhostapp.com")
-//                .addHeader("Accept-Encoding", "gzip, deflate")
-//                .addHeader("Connection", "keep-alive")
-//                .addHeader("cache-control", "no-cache")
-//                .build();
-//
-//        Response response = client.newCall(request).execute();
-//
-//            System.out.println("RESPONSE = "+response.body().string());
-//            JSONArray arr = new JSONArray(response.body().string());
-//            for (int i = 0; i < arr.length(); ++i) {
-//                String type = arr.getJSONObject(i).getString("type");
-//                list.add(new Service(type));
-//            }
-//            adapter.notifyDataSetChanged();
-//        } catch (Exception e) {
-////            Log.d("ERROR_E",e.getMessage());
-////            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//            e.printStackTrace();
-//        }
-//    }
 
 }
