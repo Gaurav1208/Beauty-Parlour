@@ -2,6 +2,15 @@ package com.example.beautyparlour.models;
 
 public class Service {
     private String name;
+    private String thumbnail;
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 
     public String getName() {
         return name;
@@ -11,7 +20,8 @@ public class Service {
         this.name = name;
     }
 
-    public Service(String name) {
+    public Service(String name, String thumbnail) {
         this.name = name;
+        this.thumbnail = thumbnail;
     }
 }

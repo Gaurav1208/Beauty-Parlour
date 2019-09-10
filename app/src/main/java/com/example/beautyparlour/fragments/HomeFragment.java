@@ -58,9 +58,7 @@ public class HomeFragment extends Fragment {
 
     private void getData() {
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        String url = "https://naseemali925.000webhostapp.com/cats.php";
-
-// Request a string response from the provided URL.
+        String url = "https://httpsgauravhuria08wixsitecomvaigau1208.000webhostapp.com/cats.php";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
@@ -72,7 +70,8 @@ public class HomeFragment extends Fragment {
                             JSONArray arr = new JSONArray(response);
                             for (int i = 0; i < arr.length(); ++i) {
                                 String type = arr.getJSONObject(i).getString("type");
-                                list.add(new Service(type));
+                                String thumbnail = arr.getJSONObject(i).getString("thumbnail");
+                                list.add(new Service(type,thumbnail));
                             }
                             adapter.notifyDataSetChanged();
                         } catch (Exception e) {
