@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onResponse(String response) {
                         Log.d("RESPONSE", response);
-                        Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                         try {
                             JSONArray arr = new JSONArray(response);
                             for (int i = 0; i < arr.length(); ++i) {
