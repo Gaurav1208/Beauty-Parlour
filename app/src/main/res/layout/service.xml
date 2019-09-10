@@ -35,7 +35,8 @@
         android:fontFamily="cursive"
         android:padding="8dp"
         android:text="Hair-Cut"
-        android:textColor="#111111"
+        android:textColor="@android:color/white"
+        android:background="#33000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
