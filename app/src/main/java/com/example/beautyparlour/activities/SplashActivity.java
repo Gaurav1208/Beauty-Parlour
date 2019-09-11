@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.beautyparlour.R;
-import com.example.beautyparlour.welcome;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,9 +21,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), welcome.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
-        }, 5000);
+        }, 3000);
     }
 }
