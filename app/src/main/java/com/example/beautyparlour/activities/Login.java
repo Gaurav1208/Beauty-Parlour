@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.beautyparlour.R;
 import com.example.beautyparlour.models.User;
 import com.example.beautyparlour.utils.Utils;
+import com.example.beautyparlour.welcome;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -89,6 +90,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             String email = signInAccount.getEmail();
             String name = signInAccount.getDisplayName();
             String phone = "";
+            registerUser(name,email,phone);
 //            AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
 //            FirebaseAuth.getInstance().signInWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 //                @Override
@@ -141,9 +143,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     private void registerUser(final String name, final String email, final String phone) {
-        Utils.getInstance().setLoggedIn(true);
-        Utils.getInstance().setEmail(email);
-        Utils.getInstance().setName(name);
 //        Utils.getInstance().setPhoto(signInAccount.getPhotoUrl().toString());
         String url = "https://httpsgauravhuria08wixsitecomvaigau1208.000webhostapp.com/register.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -151,11 +150,18 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     @Override
                     public void onResponse(String response) {
                         Log.d("RESPONSE", response);
-//                        Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
                         try {
                             User user = Utils.getInstance().getGson().fromJson(response, User.class);
-                            if(!user.exists()&&user.isRegistered()){
+                            if (!user.exists() && user.isRegistered()) {
                                 Toast.makeText(Login.this, "Thank you for joining us!", Toast.LENGTH_SHORT).show();
+                                Utils.getInstance().setLoggedIn(true);
+                                Utils.getInstance().setEmail(email);
+                                Utils.getInstance().setName(name);
+                                startActivity(new Intent(getApplicationContext(), welcome.class));
+                                finish();
+                            } else {
+                                Utils.getInstance().setLoggedIn(false);
+                                Utils.getInstance().logout();
                             }
                         } catch (RuntimeException e) {
                             Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
