@@ -2,6 +2,7 @@ package com.example.beautyparlour.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,23 +17,25 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.beautyparlour.R;
+import com.example.beautyparlour.activities.Services;
 import com.example.beautyparlour.models.Service;
+import com.example.beautyparlour.utils.Constants;
 
 import java.util.ArrayList;
 
-public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
+public class CatAdapter extends RecyclerView.Adapter<CatAdapter.ViewHolder> {
 
     private Context mContext;
     private ArrayList<Service> list;
 
-    public ServicesAdapter(Context context, ArrayList<Service> list) {
+    public CatAdapter(Context context, ArrayList<Service> list) {
         mContext = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public ServicesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CatAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
 
         View view = layoutInflater.inflate(R.layout.service, parent, false);
@@ -42,7 +45,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull ServicesAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CatAdapter.ViewHolder holder, int position) {
         final Service service = list.get(position);
         holder.name.setText(service.getName());
         RequestOptions requestOptions = new RequestOptions();
@@ -54,14 +57,14 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
                 .apply(requestOptions)
 //                .placeholder(R.drawable.loading_spinner)
                 .into(holder.imageView);
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(mContext, Services.class);
-//                intent.putExtra(Constants.CAT, service.getName());
-//                mContext.startActivity(intent);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, Services.class);
+                intent.putExtra(Constants.CAT, service.getName());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -80,4 +83,5 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         }
     }
 }
+
 

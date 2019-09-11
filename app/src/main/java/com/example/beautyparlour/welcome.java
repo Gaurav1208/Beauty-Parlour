@@ -61,15 +61,11 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         int id = menuItem.getItemId();
         FragmentManager fm = getSupportFragmentManager();
-        if (id == R.id.homes) {
+        if (id == R.id.home) {
             fm.beginTransaction().replace(R.id.frames, HomeFragment.instance()).commit();
-        } else if (id == R.id.service) {
-            fm.beginTransaction().replace(R.id.frames, new ServicesFragment()).commit();
         } else if (id == R.id.book) {
             fm.beginTransaction().replace(R.id.frames, new BooknowFragment()).commit();
-        } else if (id == R.id.offer) {
-            fm.beginTransaction().replace(R.id.frames, new OffersFragment()).commit();
-        } else if (id == R.id.abtus) {
+        } else if (id == R.id.about_us) {
             fm.beginTransaction().replace(R.id.frames, Profile.instance()).commit();
         }
         return true;
