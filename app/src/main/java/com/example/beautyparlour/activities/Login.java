@@ -152,7 +152,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                         Log.d("RESPONSE", response);
                         try {
                             User user = Utils.getInstance().getGson().fromJson(response, User.class);
-                            if (!user.exists() && user.isRegistered()) {
+                            if (user.isRegistered()) {
                                 Toast.makeText(Login.this, "Thank you for joining us!", Toast.LENGTH_SHORT).show();
                                 Utils.getInstance().setLoggedIn(true);
                                 Utils.getInstance().setEmail(user.getEmail());

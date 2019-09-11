@@ -1,5 +1,6 @@
 package com.example.beautyparlour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.beautyparlour.activities.SplashActivity;
 import com.example.beautyparlour.fragments.HomeFragment;
 import com.example.beautyparlour.fragments.Profile;
 import com.example.beautyparlour.utils.Utils;
@@ -87,9 +89,16 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
                     @Override
                     public void onResult(Status status) {
                         // ...
-                        if (status.isSuccess())
+                        if (status.isSuccess()) {
                             Toast.makeText(welcome.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(welcome.this, SplashActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+
+                        }
                     }
                 });
+
     }
 }
