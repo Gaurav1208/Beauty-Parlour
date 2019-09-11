@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/login_text"
-        android:textColor="@color/colorAuthor"
+        android:textColor="@color/colorLogins"
         android:textSize="18sp" />
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/one_tap"
-        android:textColor="@color/colorAuthor"
+        android:textColor="@color/colorLogins"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Google"
             android:textAllCaps="true"
-            android:textColor="@color/colorAuthor"
+            android:textColor="@color/colorLogins"
             android:textSize="18sp" />
     </LinearLayout>
 

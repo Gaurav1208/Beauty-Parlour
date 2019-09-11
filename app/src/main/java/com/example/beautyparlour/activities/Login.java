@@ -90,7 +90,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             String email = signInAccount.getEmail();
             String name = signInAccount.getDisplayName();
             String phone = "";
-            registerUser(name,email,phone);
+            registerUser(name, email, phone);
 //            AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
 //            FirebaseAuth.getInstance().signInWithCredential(credential).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 //                @Override
@@ -155,8 +155,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             if (!user.exists() && user.isRegistered()) {
                                 Toast.makeText(Login.this, "Thank you for joining us!", Toast.LENGTH_SHORT).show();
                                 Utils.getInstance().setLoggedIn(true);
-                                Utils.getInstance().setEmail(email);
-                                Utils.getInstance().setName(name);
+                                Utils.getInstance().setEmail(user.getEmail());
+                                Utils.getInstance().setName(user.getName());
+                                Utils.getInstance().setId(user.getId());
                                 startActivity(new Intent(getApplicationContext(), welcome.class));
                                 finish();
                             } else {
