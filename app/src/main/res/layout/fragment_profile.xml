@@ -173,7 +173,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/affogato_medium"
-                        android:text="My Orders"
+                        android:text="My Appointments"
                         android:textColor="@color/colorAuthor"
                         android:textSize="18sp" />
 

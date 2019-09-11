@@ -2,16 +2,27 @@ package com.example.beautyparlour;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.beautyparlour.fragments.HomeFragment;
 import com.example.beautyparlour.fragments.Profile;
+import com.example.beautyparlour.utils.Utils;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class welcome extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class welcome extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
+
+    private GoogleApiClient googleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +33,17 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
         navigation.setOnNavigationItemSelectedListener(this);
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.frames, HomeFragment.instance()).commit();
+        GoogleSignInOptions signInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestId()
+                .requestProfile()
+                .requestIdToken("1013393434218-ba6oh9huibc77pup1918lou5c8av4e72.apps.googleusercontent.com")
+                .build();
+        googleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, signInOptions)
+                .build();
+
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -53,4 +75,21 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
     }
 
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    public void logOut() {
+        Utils.getInstance().logout();
+        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        // ...
+                        if (status.isSuccess())
+                            Toast.makeText(welcome.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
