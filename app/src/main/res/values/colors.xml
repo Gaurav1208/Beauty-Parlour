@@ -3,4 +3,11 @@
     <color name="colorPrimary">#9C27B0</color>
     <color name="colorPrimaryDark">#7B1FA2</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gold">#FECA0B</color>
+    <color name="gold1">#F7BE16</color>
+    <color name="darkSurface">#121212</color>
+    <color name="colorDark">#303030</color>
+    <color name="grey">#424242</color>
+<!--    <color name="colorAuthor">#636363</color>-->
+    <color name="colorAuthor">#D3D3D3</color>
 </resources>

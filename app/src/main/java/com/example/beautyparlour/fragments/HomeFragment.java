@@ -13,14 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.beautyparlour.R;
 import com.example.beautyparlour.adapters.ServicesAdapter;
 import com.example.beautyparlour.models.Service;
+import com.example.beautyparlour.utils.Utils;
 
 import org.json.JSONArray;
 
@@ -56,7 +55,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void getData() {
-        RequestQueue queue = Volley.newRequestQueue(getContext());
         String url = "https://httpsgauravhuria08wixsitecomvaigau1208.000webhostapp.com/cats.php";
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -83,7 +81,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        queue.add(stringRequest);
+        Utils.getInstance().addRequest(stringRequest);
     }
 
 }
