@@ -111,17 +111,17 @@ public class Utils {
         userInfo.edit().clear().apply();
     }
 
-//    public void setPhone(String phone) {
-//        userInfo.edit()
-//                .putString(Constants.USER_PHONE, phone)
-//                .apply();
-//    }
+    public void setPhone(String phone) {
+        userInfo.edit()
+                .putString(Constants.USER_PHONE, phone)
+                .apply();
+    }
 
-//    public void setName(String name) {
-//        userInfo.edit()
-//                .putString(Constants.USER_NAME, name)
-//                .apply();
-//    }
+    public void setName(String name) {
+        userInfo.edit()
+                .putString(Constants.USER_NAME, name)
+                .apply();
+    }
 
     public String getName() {
         return userInfo.getString(Constants.USER_NAME, null);
@@ -129,6 +129,26 @@ public class Utils {
 
     public String getPhone() {
         return userInfo.getString(Constants.USER_PHONE, null);
+    }
+
+    public void setPhoto(String name) {
+        userInfo.edit()
+                .putString(Constants.USER_PIC, name)
+                .apply();
+    }
+
+    public String getPhoto() {
+        return userInfo.getString(Constants.USER_PIC, null);
+    }
+
+    public void setId(String name) {
+        userInfo.edit()
+                .putString(Constants.USER_ID, name)
+                .apply();
+    }
+
+    public String getId() {
+        return userInfo.getString(Constants.USER_ID, null);
     }
 
     public static String getFormatted(String date) {
