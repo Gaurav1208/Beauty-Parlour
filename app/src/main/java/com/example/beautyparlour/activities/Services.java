@@ -65,8 +65,11 @@ public class Services extends AppCompatActivity {
                             JSONArray arr = new JSONArray(response);
                             for (int i = 0; i < arr.length(); ++i) {
                                 String type = arr.getJSONObject(i).getString("type");
+                                String name = arr.getJSONObject(i).getString("name");
                                 String thumbnail = arr.getJSONObject(i).getString("thumbnail");
-                                list.add(new Service(type, thumbnail));
+                                Service service = new Service(name, thumbnail);
+                                service.setType(type);
+                                list.add(service);
                             }
                             adapter.notifyDataSetChanged();
                         } catch (Exception e) {
