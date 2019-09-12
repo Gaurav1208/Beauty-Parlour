@@ -3,6 +3,7 @@ package com.example.beautyparlour.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,9 +40,11 @@ public class Services extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new ServicesAdapter(this, list);
         recyclerView.setAdapter(adapter);
+
         Intent intent = getIntent();
         if (intent != null) {
             String cat = intent.getStringExtra(Constants.CAT);
+            setTitle(cat);
             if (cat != null) {
                 getData(cat);
             } else {
@@ -50,6 +53,16 @@ public class Services extends AppCompatActivity {
         } else {
             finish();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void getData(String cat) {

@@ -32,12 +32,14 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
+        android:textAllCaps="true"
+        android:fontFamily="@font/affogato_bold"
         android:padding="8dp"
+        android:gravity="center_vertical"
         android:text="Hair-Cut"
-        android:textColor="@android:color/white"
-        android:background="#33000000"
-        android:textSize="22sp"
+        android:textColor="@color/gold1"
+        android:background="#B3000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
