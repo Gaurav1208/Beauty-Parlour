@@ -15,6 +15,7 @@
         android:src="@drawable/vaigu_icon" />
 
     <TextView
+        android:fontFamily="@font/affogato_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -22,6 +23,7 @@
         android:textColor="@color/colorLogins"
         android:textSize="18sp" />
     <TextView
+        android:fontFamily="@font/affogato_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -52,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google"
+            android:fontFamily="@font/affogato_bold"
             android:textAllCaps="true"
             android:textColor="@color/colorLogins"
             android:textSize="18sp" />
