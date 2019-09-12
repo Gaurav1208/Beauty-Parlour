@@ -29,8 +29,7 @@ public class welcome extends AppCompatActivity implements BottomNavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-
+        setContentView(R.layout.custom_titlebar);
         BottomNavigationView navigation = findViewById(R.id.bottom_nav_menu);
         navigation.setOnNavigationItemSelectedListener(this);
         FragmentManager fm = getSupportFragmentManager();
